@@ -366,7 +366,7 @@
 
 </main>
 
-<div class="footer-note">Universidad de La Sabana · Coordinación de Desarrollo Cultural</div>
+<div class="footer-note">Universidad de La Sabana</div>
 
 <script>
 // ====================== DATOS DEL EVENTO ======================
@@ -384,15 +384,15 @@ const PUBLIC_START = dt("08:00"); // hora de apertura al público — meta de la
 const TIMELINE = [
   { icon:"🧭", start: dt("06:30"), end: dt("08:00"), title: "Apertura operativa", lead: "Equipo de Logística", support: "Natalia Llano, Camilo Londoño, Luisa López, Alexandra Malaver, Juan David Suárez" },
   { icon:"👨‍👩‍👧", start: dt("08:00"), end: dt("08:30"), title: "Recepción de familias", lead: "Equipo BEE", support: "Mónica, Alex Rodríguez, Camilo Londoño, Camila González, Caro Márquez, Paula" },
-  { icon:"🙏", start: dt("08:30"), end: dt("09:15"), title: "Misa para la familia", lead: "Responsable de Protocolo", support: "Camilo Roncancio, Magda Beltrán" },
+  { icon:"🙏", start: dt("08:30"), end: dt("09:15"), title: "Misa para la familia", lead: "Responsable de Protocolo", support: "Camilo Roncancio, Magda Beltrán · Coro y OSUS (Orquesta Sinfónica) en la música de la misa" },
   { icon:"🤸", start: dt("09:15"), end: dt("09:30"), title: "Transición a la carrera", lead: "Equipo de Deportes", support: "Logística, comunicaciones" },
   { icon:"🔥", start: dt("09:30"), end: dt("10:00"), title: "Calentamiento — Misión Corre por La Sabana", lead: "Equipo de Deportes / SmartFit", support: "Instructor, música, primeros auxilios" },
-  { icon:"🏃", start: dt("10:00"), end: dt("10:45"), title: "Carrera Misión Corre por La Sabana", lead: "Equipo de Deportes", support: "Seguridad, brigada, logística, comunicaciones" },
+  { icon:"🏃", start: dt("10:00"), end: dt("10:45"), title: "Carrera Misión Corre por La Sabana", lead: "Equipo de Deportes", support: "Seguridad, brigada, logística, comunicaciones · Grupo de Repercusión animando el recorrido" },
   { icon:"🌿", start: dt("10:45"), end: dt("11:00"), title: "Transición al festival", lead: "Carolina Márquez", support: "Equipo Base" },
   { icon:"🎡", start: dt("11:00"), end: dt("11:30"), title: "Festival (emprendimiento, gastronomía, recreación, carros antiguos)", lead: "Equipo Base", support: "Emprendedores, proveedores, SST, recreadores" },
-  { icon:"🎤", start: dt("11:30"), end: dt("14:25"), title: "Concierto \"Voces por Colombia\"", lead: "Santiago Bedoya — Desarrollo Cultural", support: "Grupos representativos, producción, protocolo, comunicaciones", isConcert:true },
-  { icon:"🙌", start: dt("14:25"), end: dt("15:00"), title: "Cierre", lead: "Equipo BEE + Becarios", support: "Todos los líderes de frente" },
-  { icon:"📦", start: dt("15:00"), end: dt("16:30"), title: "Desmontaje", lead: "Responsable de Logística", support: "Equipo BEE + Becarios" },
+  { icon:"🎤", start: dt("11:30"), end: dt("14:55"), title: "Concierto \"Voces por Colombia\"", lead: "Santiago Bedoya — Desarrollo Cultural", support: "Grupos representativos, producción, protocolo, comunicaciones", isConcert:true },
+  { icon:"🙌", start: dt("14:55"), end: dt("15:30"), title: "Cierre", lead: "Equipo BEE + Becarios", support: "Todos los líderes de frente" },
+  { icon:"📦", start: dt("15:30"), end: dt("17:00"), title: "Desmontaje", lead: "Responsable de Logística", support: "Equipo BEE + Becarios" },
 ];
 
 const CONCERT_LINEUP = [
@@ -401,26 +401,27 @@ const CONCERT_LINEUP = [
   { name:"US Band", dir:"Dir. Gustavo Rincón", start: dt("12:40"), end: dt("13:10") },
   { name:"Puente Rojo", dir:"Dir. Julián Crosby", start: dt("13:15"), end: dt("13:45") },
   { name:"Fusión", dir:"Dir. Gustavo Rincón", start: dt("13:50"), end: dt("14:20") },
+  { name:"Parranda / Vallenato", dir:"Dir. Jordy Sánchez", start: dt("14:25"), end: dt("14:55") },
 ];
 
 const FRENTES = [
   { icon:"🧭", name:"Coordinación general del evento", horario:"7:30 a. m. – 1:30 p. m.", lead:"Líder de Evento / Cultura", support:["Coordinadores de cada frente"], func:["Dirigir la operación general y validar el cumplimiento del cronograma","Resolver novedades y coordinar responsables","Mantener comunicación con Dirección de Bienestar","Tomar decisiones ante cambios o contingencias"] },
   { icon:"🛠️", name:"Montaje y logística general", horario:"6:30 – 1:30 p. m.", lead:"Responsable de Logística", support:["Montaje","Servicios generales","Proveedores"], func:["Verificar escenarios, carpas, sillas, mesas, sonido y energía","Revisar señalización, puntos de hidratación y zonas de circulación","Realizar recorrido de apertura y desmontaje"] },
-  { icon:"🙏", name:"Misa para la familia", horario:"8:30 a. m.", lead:"Responsable de Protocolo", support:["Capellanía","Logística","Comunicaciones"], func:["Recibir y ubicar asistentes; coordinar ingreso de invitados","Verificar montaje del oratorio y acompañar al sacerdote","Controlar tiempos y garantizar la transición a la siguiente actividad"] },
+  { icon:"🙏", name:"Misa para la familia", horario:"8:30 a. m.", lead:"Responsable de Protocolo", support:["Capellanía","Logística","Comunicaciones","Coro","OSUS — Orquesta Sinfónica"], func:["Recibir y ubicar asistentes; coordinar ingreso de invitados","Verificar montaje del oratorio y acompañar al sacerdote","El Coro y la OSUS acompañan musicalmente la misa","Controlar tiempos y garantizar la transición a la siguiente actividad"] },
   { icon:"🔥", name:"Carrera — Calentamiento", horario:"9:30 a. m.", lead:"Responsable de Deportes / Actividad Física", support:["Logística","Comunicaciones","Primeros auxilios"], func:["Coordinar llegada de corredores y calentamiento","Ubicar instructores, hidratación y música","Señalizar y preparar la salida"] },
-  { icon:"🏃", name:"Carrera Misión Corre por La Sabana", horario:"10:00 a. m.", lead:"Responsable de Deportes / Carrera", support:["Seguridad","Brigada","Logística","Comunicaciones"], func:["Controlar salida y recorrido; puntos de hidratación","Atender emergencias y acompañar participantes","Coordinar llegada, tiempos y cierre de la carrera"] },
+  { icon:"🏃", name:"Carrera Misión Corre por La Sabana", horario:"10:00 a. m.", lead:"Responsable de Deportes / Carrera", support:["Seguridad","Brigada","Logística","Comunicaciones","Grupo de Repercusión"], func:["Controlar salida y recorrido; puntos de hidratación","El Grupo de Repercusión anima el recorrido","Atender emergencias y acompañar participantes","Coordinar llegada, tiempos y cierre de la carrera"] },
   { icon:"💡", name:"Festival de emprendimientos UniSabana", horario:"11:00 a. m.", lead:"Responsable de Emprendimiento", support:["Emprendedores","Logística","Comunicaciones"], func:["Recibir y ubicar emprendimientos; verificar stands","Apoyar necesidades de los emprendedores","Garantizar circulación del público y cierre organizado"] },
   { icon:"🍔", name:"Festival gastronómico", horario:"11:00 a. m.", lead:"Responsable de Gastronomía / Logística", support:["Proveedores","Emprendimientos","SST"], func:["Verificar manipulación de alimentos y puntos de venta","Gestionar residuos y disponibilidad de mesas","Supervisar condiciones de seguridad e higiene"] },
   { icon:"🎈", name:"Actividades recreativas en familia", horario:"11:00 a. m.", lead:"Responsable de Experiencia / Bienestar", support:["Recreadores","Estudiantes voluntarios"], func:["Coordinar juegos y experiencias; organizar familias","Garantizar participación de diferentes edades","Controlar materiales, tiempos y flujo de asistentes"] },
   { icon:"🚗", name:"Exposición de carros antiguos", horario:"11:00 a. m.", lead:"Responsable de Logística", support:["Seguridad","Anfitriones"], func:["Coordinar ingreso y ubicación de vehículos","Delimitar espacios y garantizar seguridad","Organizar circulación y retiro de los carros"] },
-  { icon:"🎤", name:"Concierto \"Voces por Colombia\"", horario:"11:30 a. m. – 2:25 p. m.", lead:"Responsable de Desarrollo Cultural — Santiago Bedoya", support:["Grupos representativos","Producción","Protocolo","Comunicaciones"], func:["Coordinar artistas y grupos representativos; prueba de sonido","Definir orden de presentación, camerinos y zonas de espera","Supervisar ingreso, salida, tiempos y cierre artístico"] },
+  { icon:"🎤", name:"Concierto \"Voces por Colombia\"", horario:"11:30 a. m. – 2:55 p. m.", lead:"Responsable de Desarrollo Cultural — Santiago Bedoya", support:["Grupos representativos","Producción","Protocolo","Comunicaciones"], func:["Coordinar artistas y grupos representativos; prueba de sonido","Definir orden de presentación, camerinos y zonas de espera","Supervisar ingreso, salida, tiempos y cierre artístico"] },
   { icon:"🎚️", name:"Producción técnica / sonido", horario:"7:30 a. m. – 1:30 p. m.", lead:"Productor Técnico", support:["Sonido","Tarima","Operadores"], func:["Pruebas técnicas, micrófonos y música ambiental","Sonido de misa, calentamiento, anuncios y concierto","Manejar cambios entre actividades y contingencias técnicas"] },
   { icon:"🎟️", name:"Protocolo y atención de invitados", horario:"8:00 a. m. – 1:00 p. m.", lead:"Responsable de Protocolo", support:["Anfitriones","Estudiantes"], func:["Recibir invitados especiales y acompañarlos en la jornada","Coordinar ubicaciones y momentos institucionales","Garantizar una experiencia coherente con el aniversario"] },
   { icon:"📸", name:"Comunicaciones y registro audiovisual", horario:"8:00 a. m. – 1:30 p. m.", lead:"Responsable de Comunicaciones", support:["Fotografía","Video","Redes sociales"], func:["Registro fotográfico y audiovisual de momentos clave","Generar contenidos en tiempo real y testimonios","Garantizar visibilidad del concepto Aniversario Solidario"] },
   { icon:"🚑", name:"Seguridad, salud y emergencias", horario:"7:30 a. m. – 1:30 p. m.", lead:"Responsable de SST / Seguridad", support:["Brigada","Vigilancia","Primeros auxilios"], func:["Activar plan de emergencias y rutas de evacuación","Controlar aforos y acompañar la carrera","Identificar riesgos y coordinar con servicios médicos"] },
   { icon:"💙", name:"Experiencia del participante", horario:"8:00 a. m. – 1:30 p. m.", lead:"Responsable de Experiencia del Estudiante", support:["Voluntarios","Anfitriones"], func:["Velar por una jornada cálida, familiar y organizada","Orientar asistentes y resolver preguntas","Identificar puntos de fricción y activar soluciones"] },
   { icon:"🙋", name:"Voluntarios / estudiantes de apoyo", horario:"Toda la jornada", lead:"Coordinador de Voluntarios", support:["Voluntarios"], func:["Apoyar orientación, filas y actividades familiares","Entregar información y acompañar participantes","Reportar novedades al responsable correspondiente"] },
-  { icon:"📦", name:"Cierre y desmontaje", horario:"2:25 – 4:30 p. m. (estimado)", lead:"Responsable de Logística", support:["Todos los líderes de frente"], func:["Validar salida de proveedores y participantes","Desmontar, recolectar materiales y revisar espacios","Gestionar objetos perdidos, residuos y entrega del campus"] },
+  { icon:"📦", name:"Cierre y desmontaje", horario:"2:55 – 5:00 p. m. (estimado)", lead:"Responsable de Logística", support:["Todos los líderes de frente"], func:["Validar salida de proveedores y participantes","Desmontar, recolectar materiales y revisar espacios","Gestionar objetos perdidos, residuos y entrega del campus"] },
 ];
 
 // ====================== RENDER ESTÁTICO ======================
