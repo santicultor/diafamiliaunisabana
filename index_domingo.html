@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Día de la Familia UniSabana — En Vivo</title>
+<meta name="description" content="Sigue en vivo el Día de la Familia UniSabana: qué está pasando ahora, quién está a cargo y el cronograma completo del domingo 20 de septiembre.">
+<meta property="og:title" content="Día de la Familia UniSabana — En Vivo">
+<meta property="og:description" content="Cronograma en vivo del Aniversario Solidario · 47 años. Domingo 20 de septiembre, Campus UniSabana.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#00205B">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#00205B;
+    --blue:#00387b;
+    --blue-soft:#eef2f9;
+    --white:#ffffff;
+    --ink:#101828;
+    --muted:#66728a;
+    --border:#e6e9f0;
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --live-red:#d64545;
+    --ok-green:#1f9d5c;
+    --radius:20px;
+    --radius-sm:14px;
+    --shadow: 0 10px 30px rgba(0,32,91,0.07);
+    --shadow-lift: 0 16px 36px rgba(0,32,91,0.14);
+    --font-display:'Manrope', system-ui, sans-serif;
+    --font-body:'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0a1220; --card:#111b2e; --ink:#eef2f8; --muted:#9aa7bb;
+      --border:#213048; --blue-soft:#152441; --shadow: 0 10px 30px rgba(0,0,0,0.4);
+      --shadow-lift: 0 16px 36px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0a1220; --card:#111b2e; --ink:#eef2f8; --muted:#9aa7bb;
+    --border:#213048; --blue-soft:#152441; --shadow: 0 10px 30px rgba(0,0,0,0.4);
+    --shadow-lift: 0 16px 36px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.55;
+    padding-bottom:50px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 16px;}
+
+  /* ============ HEADER ============ */
+  header.top{
+    position:relative;
+    background:
+      radial-gradient(circle at 12% 15%, rgba(255,255,255,0.12) 0, transparent 42%),
+      radial-gradient(circle at 92% 85%, rgba(255,255,255,0.10) 0, transparent 48%),
+      linear-gradient(150deg, var(--navy) 0%, var(--blue) 100%);
+    background-size: 100% 100%, 100% 100%, 200% 200%;
+    animation: driftBg 18s ease-in-out infinite alternate;
+    color:#fff;
+    padding:38px 16px 26px;
+    overflow:hidden;
+  }
+  @keyframes driftBg{
+    from{ background-position: 0% 0%, 0% 0%, 0% 0%; }
+    to{ background-position: 0% 0%, 0% 0%, 100% 100%; }
+  }
+  header.top::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1.5px);
+    background-size: 18px 18px;
+    opacity:.16;
+    pointer-events:none;
+  }
+  header.top .inner{position:relative; z-index:1;}
+  header.top h1{
+    margin:0 0 4px;
+    font-family:var(--font-display);
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:-0.02em;
+  }
+  header.top .sub{
+    font-size:14.5px;
+    font-weight:600;
+    color:#ffe9a8;
+    letter-spacing:.03em;
+  }
+  header.top .meta{ margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.22);
+    -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+    border-radius:999px; padding:6px 12px; font-size:12.5px; font-weight:600;
+  }
+
+  .status-strip{
+    position:relative; z-index:1;
+    margin-top:20px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:var(--radius-sm);
+    padding:14px 16px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  }
+  .status-strip .label{ font-size:11.5px; text-transform:uppercase; letter-spacing:.07em; font-weight:700; opacity:.85; }
+  .status-strip .msg{ font-size:15px; font-weight:700; margin-top:2px; font-family:var(--font-display); }
+  .countdown{ display:flex; gap:8px; }
+  .countdown .unit{ text-align:center; background:rgba(0,0,0,0.18); border-radius:10px; padding:7px 9px; min-width:48px; }
+  .countdown .unit .num{ font-size:20px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1; font-family:var(--font-display); }
+  .countdown .unit .u{ font-size:9px; text-transform:uppercase; letter-spacing:.06em; opacity:.75; margin-top:3px; }
+  .live-pill{
+    display:inline-flex; align-items:center; gap:7px; background:var(--live-red);
+    padding:8px 14px; border-radius:999px; font-weight:800; font-size:13.5px; letter-spacing:.02em;
+  }
+  .live-dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 1.4s infinite;}
+  @keyframes pulse{0%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(0.8);}100%{opacity:1;transform:scale(1);}}
+
+  /* ============ NAV ============ */
+  nav.tabs{
+    position:sticky; top:0; z-index:30;
+    background:rgba(246,247,251,0.88);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    display:flex; justify-content:center; gap:4px; padding:10px 12px;
+  }
+  :root[data-theme="dark"] nav.tabs{ background:rgba(10,18,32,0.88); }
+  nav.tabs button{
+    background:transparent; border:none; padding:9px 16px;
+    font-family:var(--font-body); font-size:13.5px; font-weight:700; color:var(--muted);
+    cursor:pointer; border-radius:999px; display:flex; align-items:center; gap:6px;
+    transition: background .2s ease, color .2s ease, transform .15s ease;
+  }
+  nav.tabs button:hover{ color:var(--navy); }
+  :root[data-theme="dark"] nav.tabs button:hover{ color:#cfe0ff; }
+  nav.tabs button.active{
+    color:#fff; background: linear-gradient(135deg, var(--navy), var(--blue));
+    box-shadow:0 4px 12px rgba(0,32,91,0.25);
+  }
+  nav.tabs button.active:hover{ color:#fff; }
+  nav.tabs button:active{ transform:scale(0.96); }
+
+  main{padding-top:20px;}
+  section.panel{display:none;}
+  section.panel.active{display:block; animation: fadeIn .4s ease;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:20px; margin-bottom:16px;
+    opacity:0; transform:translateY(14px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .card.in-view{ opacity:1; transform:translateY(0); }
+
+  /* ============ LIVE BANNER ============ */
+  .live-banner{
+    background: linear-gradient(160deg, var(--navy), var(--blue));
+    color:#fff; border-radius:var(--radius); padding:24px; margin-bottom:16px;
+    box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .live-banner::before{
+    content:""; position:absolute; top:-70px; right:-70px; width:200px; height:200px;
+    border-radius:50%; background:rgba(255,255,255,0.08);
+  }
+  .live-banner::after{
+    content:""; position:absolute; bottom:-60px; left:-40px; width:140px; height:140px;
+    border-radius:50%; background:rgba(255,255,255,0.05);
+  }
+  .phase-icon{ font-size:36px; line-height:1; margin-bottom:8px; }
+  .live-banner .status-label{ font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:700; opacity:.78; }
+  .live-banner h2{ margin:5px 0 3px; font-family:var(--font-display); font-size:23px; font-weight:800; letter-spacing:-0.01em; }
+  .live-banner .time-range{ font-size:14px; opacity:.88; margin-bottom:16px; }
+
+  .who-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  @media (max-width:480px){ .who-grid{grid-template-columns:1fr;} }
+  .who-box{ background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:13px; padding:11px 13px; }
+  .who-box .lbl{ font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; opacity:.72; font-weight:700; }
+  .who-box .val{ font-size:14.5px; font-weight:700; margin-top:3px; }
+
+  .progress-track{ margin-top:16px; height:7px; border-radius:999px; background:rgba(255,255,255,0.18); overflow:hidden; }
+  .progress-fill{ height:100%; background:#fff; border-radius:999px; transition:width .6s ease; }
+
+  .next-up{
+    margin-top:14px; padding-top:13px; border-top:1px dashed rgba(255,255,255,0.28);
+    font-size:13.5px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; opacity:.95;
+  }
+
+  .updated-note{ font-size:11.5px; color:var(--muted); text-align:center; margin:-4px 0 16px; }
+
+  h3.section-title{
+    font-family:var(--font-display); font-size:17px; font-weight:800; color:var(--navy);
+    margin:2px 0 14px; display:flex; align-items:center; gap:8px;
+  }
+  :root[data-theme="dark"] h3.section-title{ color:#cfe0ff; }
+
+  .step{ display:flex; gap:13px; }
+  .step .rail{ display:flex; flex-direction:column; align-items:center; width:32px; flex:0 0 32px; }
+  .step .icon-dot{
+    width:32px;height:32px;border-radius:50%; display:flex;align-items:center;justify-content:center;
+    font-size:15px; background:var(--blue-soft); flex:0 0 auto; transition:background .3s ease;
+  }
+  .step.done .icon-dot{ background:var(--ok-green); }
+  .step.now .icon-dot{ background:var(--live-red); box-shadow:0 0 0 5px rgba(214,69,69,0.15); }
+  .step .rail-line{ width:2px; flex:1; background:var(--border); margin:2px 0; }
+  .step.done .rail-line{ background:var(--ok-green); }
+  .step:last-child .rail-line{ display:none; }
+  .step .content{ flex:1; padding-bottom:22px; }
+  .step:last-child .content{ padding-bottom:0; }
+  .step .time{ font-size:12px; font-weight:800; color:var(--blue); }
+  :root[data-theme="dark"] .step .time{ color:#8fb4ff; }
+  .step.now .time{ color:var(--live-red); }
+  .step .title{ font-family:var(--font-display); font-size:14.5px; font-weight:700; margin:2px 0 3px; }
+  .step .who{ font-size:12.5px; color:var(--muted); }
+  .now-tag{
+    display:inline-block; background:var(--live-red); color:#fff; font-size:10px; font-weight:800;
+    padding:2px 8px; border-radius:999px; margin-left:6px; vertical-align:middle; letter-spacing:.03em;
+  }
+
+  /* ============ FRENTES ============ */
+  .frente-card{
+    border:1px solid var(--border); border-radius:var(--radius-sm); margin-bottom:10px;
+    overflow:hidden; transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  }
+  .frente-card[open]{ box-shadow:var(--shadow-lift); border-color:transparent; }
+  @media (hover:hover){
+    .frente-card:hover{ border-color:var(--blue); }
+  }
+  .frente-card > summary{ list-style:none; cursor:pointer; padding:13px 14px; display:flex; align-items:center; gap:12px; }
+  .frente-card > summary::-webkit-details-marker{ display:none; }
+  .frente-icon{
+    width:38px;height:38px;flex:0 0 38px;border-radius:12px; background:var(--blue-soft);
+    display:flex;align-items:center;justify-content:center;font-size:18px; transition:transform .25s ease;
+  }
+  .frente-card[open] .frente-icon{ transform:scale(1.08); }
+  .frente-main{ flex:1; min-width:0; }
+  .frente-title{ font-family:var(--font-display); font-weight:700; font-size:14px; }
+  .frente-sub{ font-size:12px; color:var(--muted); margin-top:2px; }
+  .chev{ color:var(--muted); transition:transform .25s ease; flex:0 0 auto; }
+  .frente-card[open] .chev{ transform:rotate(180deg); }
+  .frente-body{ padding:0 16px 16px 66px; font-size:13.5px; animation: fadeIn .3s ease; }
+  .frente-body ul{ margin:0; padding-left:18px; }
+  .frente-body li{ margin-bottom:5px; }
+  .support-chips{ margin-top:10px; display:flex; flex-wrap:wrap; gap:6px; }
+  .chip-sm{ background:var(--blue-soft); color:var(--navy); font-size:11.5px; font-weight:600; padding:4px 10px; border-radius:999px; }
+  :root[data-theme="dark"] .chip-sm{ color:#cfe0ff; }
+
+  /* ============ CONCIERTO ============ */
+  .lineup-item{
+    display:flex; align-items:center; gap:14px; padding:13px 10px; border-bottom:1px solid var(--border);
+    border-radius:12px; transition: background .2s ease;
+  }
+  .lineup-item:last-child{ border-bottom:none; }
+  @media (hover:hover){ .lineup-item:hover{ background:var(--blue-soft); } }
+  .lineup-num{
+    width:38px;height:38px;flex:0 0 38px;border-radius:50%; background:var(--navy); color:#fff;
+    display:flex;align-items:center;justify-content:center; font-weight:800; font-size:15px;
+  }
+  .lineup-item.now .lineup-num{ background:var(--live-red); }
+  .lineup-item.done .lineup-num{ background:var(--ok-green); }
+  .lineup-name{ font-family:var(--font-display); font-weight:700; font-size:15px; }
+  .lineup-dir{ font-size:12.5px; color:var(--muted); }
+  .lineup-time{ margin-left:auto; text-align:right; font-size:12.5px; font-weight:700; color:var(--blue); flex:0 0 auto; }
+  :root[data-theme="dark"] .lineup-time{ color:#8fb4ff; }
+
+  .footer-note{ text-align:center; font-size:12px; color:var(--muted); margin-top:26px; padding:0 20px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap inner">
+    <h1>Día de la Familia UniSabana</h1>
+    <div class="sub">Aniversario Solidario · 47 años</div>
+    <div class="meta">
+      <span class="chip">📅 Domingo 20 de septiembre</span>
+      <span class="chip">📍 Campus UniSabana, Chía</span>
+    </div>
+
+    <div class="status-strip" id="status-strip">
+      <div>
+        <div class="label" id="strip-label">Cuenta regresiva</div>
+        <div class="msg" id="strip-msg">Calculando…</div>
+      </div>
+      <div id="strip-right"></div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button data-tab="live" class="active">🟢 En vivo</button>
+  <button data-tab="schedule">🗓️ Cronograma</button>
+  <button data-tab="concert">🎤 Concierto</button>
+</nav>
+
+<main class="wrap">
+
+  <!-- ===== TAB: EN VIVO ===== -->
+  <section class="panel active" id="panel-live">
+
+    <div class="live-banner" id="live-banner">
+      <div class="phase-icon" id="phase-icon">⏳</div>
+      <div class="status-label" id="status-label">Actividad actual</div>
+      <h2 id="current-title">Cargando…</h2>
+      <div class="time-range" id="current-time-range"></div>
+
+      <div class="who-grid">
+        <div class="who-box">
+          <div class="lbl">Responsable líder</div>
+          <div class="val" id="current-lead">—</div>
+        </div>
+        <div class="who-box">
+          <div class="lbl">Equipo de apoyo</div>
+          <div class="val" id="current-support">—</div>
+        </div>
+      </div>
+
+      <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+
+      <div class="next-up">
+        <div>⏭️ Sigue: <b id="next-title">—</b></div>
+        <div id="next-time">—</div>
+      </div>
+    </div>
+    <div class="updated-note" id="updated-note">Se actualiza sola cada segundo, hora de Colombia.</div>
+
+    <div class="card">
+      <h3 class="section-title">📍 Así va el día</h3>
+      <div id="mini-timeline"></div>
+    </div>
+
+  </section>
+
+  <!-- ===== TAB: CRONOGRAMA ===== -->
+  <section class="panel" id="panel-schedule">
+    <div class="card">
+      <h3 class="section-title">🗓️ Frentes del evento</h3>
+      <p style="font-size:13px;color:var(--muted);margin-top:-8px;margin-bottom:14px;">Toca cada uno para ver el detalle y el equipo de apoyo.</p>
+      <div id="frentes-list"></div>
+    </div>
+  </section>
+
+  <!-- ===== TAB: CONCIERTO ===== -->
+  <section class="panel" id="panel-concert">
+    <div class="card">
+      <h3 class="section-title">🎤 Concierto "Voces por Colombia"</h3>
+      <p style="font-size:13px;color:var(--muted);margin-top:-8px;">Responsable general: <b>Santiago Bedoya</b> · Desarrollo Cultural</p>
+      <div id="concert-lineup"></div>
+    </div>
+  </section>
+
+</main>
+
+<div class="footer-note">Universidad de La Sabana · Coordinación de Desarrollo Cultural</div>
+
+<script>
+// ====================== DATOS DEL EVENTO ======================
+const EVENT_DATE = "2026-09-20"; // Domingo
+const MONTAJE_DATE = "2026-09-19"; // Sábado
+const TZ_OFFSET = "-05:00"; // Bogotá
+
+function dt(hhmm, dateStr){
+  return new Date(`${dateStr || EVENT_DATE}T${hhmm}:00${TZ_OFFSET}`);
+}
+
+const MONTAJE_START = dt("08:00", MONTAJE_DATE);
+const PUBLIC_START = dt("08:00"); // hora de apertura al público — meta de la cuenta regresiva
+
+const TIMELINE = [
+  { icon:"🧭", start: dt("06:30"), end: dt("08:00"), title: "Apertura operativa", lead: "Equipo de Logística", support: "Natalia Llano, Camilo Londoño, Luisa López, Alexandra Malaver, Juan David Suárez" },
+  { icon:"👨‍👩‍👧", start: dt("08:00"), end: dt("08:30"), title: "Recepción de familias", lead: "Equipo BEE", support: "Mónica, Alex Rodríguez, Camilo Londoño, Camila González, Caro Márquez, Paula" },
+  { icon:"🙏", start: dt("08:30"), end: dt("09:15"), title: "Misa para la familia", lead: "Responsable de Protocolo", support: "Camilo Roncancio, Magda Beltrán" },
+  { icon:"🤸", start: dt("09:15"), end: dt("09:30"), title: "Transición a la carrera", lead: "Equipo de Deportes", support: "Logística, comunicaciones" },
+  { icon:"🔥", start: dt("09:30"), end: dt("10:00"), title: "Calentamiento — Misión Corre por La Sabana", lead: "Equipo de Deportes / SmartFit", support: "Instructor, música, primeros auxilios" },
+  { icon:"🏃", start: dt("10:00"), end: dt("10:45"), title: "Carrera Misión Corre por La Sabana", lead: "Equipo de Deportes", support: "Seguridad, brigada, logística, comunicaciones" },
+  { icon:"🌿", start: dt("10:45"), end: dt("11:00"), title: "Transición al festival", lead: "Carolina Márquez", support: "Equipo Base" },
+  { icon:"🎡", start: dt("11:00"), end: dt("11:30"), title: "Festival (emprendimiento, gastronomía, recreación, carros antiguos)", lead: "Equipo Base", support: "Emprendedores, proveedores, SST, recreadores" },
+  { icon:"🎤", start: dt("11:30"), end: dt("14:25"), title: "Concierto \"Voces por Colombia\"", lead: "Santiago Bedoya — Desarrollo Cultural", support: "Grupos representativos, producción, protocolo, comunicaciones", isConcert:true },
+  { icon:"🙌", start: dt("14:25"), end: dt("15:00"), title: "Cierre", lead: "Equipo BEE + Becarios", support: "Todos los líderes de frente" },
+  { icon:"📦", start: dt("15:00"), end: dt("16:30"), title: "Desmontaje", lead: "Responsable de Logística", support: "Equipo BEE + Becarios" },
+];
+
+const CONCERT_LINEUP = [
+  { name:"Entre Mares", dir:"Dir. Jordy Sánchez", start: dt("11:30"), end: dt("12:00") },
+  { name:"Punto Rock", dir:"Dir. Julián Crosby", start: dt("12:05"), end: dt("12:35") },
+  { name:"US Band", dir:"Dir. Gustavo Rincón", start: dt("12:40"), end: dt("13:10") },
+  { name:"Puente Rojo", dir:"Dir. Julián Crosby", start: dt("13:15"), end: dt("13:45") },
+  { name:"Fusión", dir:"Dir. Gustavo Rincón", start: dt("13:50"), end: dt("14:20") },
+];
+
+const FRENTES = [
+  { icon:"🧭", name:"Coordinación general del evento", horario:"7:30 a. m. – 1:30 p. m.", lead:"Líder de Evento / Cultura", support:["Coordinadores de cada frente"], func:["Dirigir la operación general y validar el cumplimiento del cronograma","Resolver novedades y coordinar responsables","Mantener comunicación con Dirección de Bienestar","Tomar decisiones ante cambios o contingencias"] },
+  { icon:"🛠️", name:"Montaje y logística general", horario:"6:30 – 1:30 p. m.", lead:"Responsable de Logística", support:["Montaje","Servicios generales","Proveedores"], func:["Verificar escenarios, carpas, sillas, mesas, sonido y energía","Revisar señalización, puntos de hidratación y zonas de circulación","Realizar recorrido de apertura y desmontaje"] },
+  { icon:"🙏", name:"Misa para la familia", horario:"8:30 a. m.", lead:"Responsable de Protocolo", support:["Capellanía","Logística","Comunicaciones"], func:["Recibir y ubicar asistentes; coordinar ingreso de invitados","Verificar montaje del oratorio y acompañar al sacerdote","Controlar tiempos y garantizar la transición a la siguiente actividad"] },
+  { icon:"🔥", name:"Carrera — Calentamiento", horario:"9:30 a. m.", lead:"Responsable de Deportes / Actividad Física", support:["Logística","Comunicaciones","Primeros auxilios"], func:["Coordinar llegada de corredores y calentamiento","Ubicar instructores, hidratación y música","Señalizar y preparar la salida"] },
+  { icon:"🏃", name:"Carrera Misión Corre por La Sabana", horario:"10:00 a. m.", lead:"Responsable de Deportes / Carrera", support:["Seguridad","Brigada","Logística","Comunicaciones"], func:["Controlar salida y recorrido; puntos de hidratación","Atender emergencias y acompañar participantes","Coordinar llegada, tiempos y cierre de la carrera"] },
+  { icon:"💡", name:"Festival de emprendimientos UniSabana", horario:"11:00 a. m.", lead:"Responsable de Emprendimiento", support:["Emprendedores","Logística","Comunicaciones"], func:["Recibir y ubicar emprendimientos; verificar stands","Apoyar necesidades de los emprendedores","Garantizar circulación del público y cierre organizado"] },
+  { icon:"🍔", name:"Festival gastronómico", horario:"11:00 a. m.", lead:"Responsable de Gastronomía / Logística", support:["Proveedores","Emprendimientos","SST"], func:["Verificar manipulación de alimentos y puntos de venta","Gestionar residuos y disponibilidad de mesas","Supervisar condiciones de seguridad e higiene"] },
+  { icon:"🎈", name:"Actividades recreativas en familia", horario:"11:00 a. m.", lead:"Responsable de Experiencia / Bienestar", support:["Recreadores","Estudiantes voluntarios"], func:["Coordinar juegos y experiencias; organizar familias","Garantizar participación de diferentes edades","Controlar materiales, tiempos y flujo de asistentes"] },
+  { icon:"🚗", name:"Exposición de carros antiguos", horario:"11:00 a. m.", lead:"Responsable de Logística", support:["Seguridad","Anfitriones"], func:["Coordinar ingreso y ubicación de vehículos","Delimitar espacios y garantizar seguridad","Organizar circulación y retiro de los carros"] },
+  { icon:"🎤", name:"Concierto \"Voces por Colombia\"", horario:"11:30 a. m. – 2:25 p. m.", lead:"Responsable de Desarrollo Cultural — Santiago Bedoya", support:["Grupos representativos","Producción","Protocolo","Comunicaciones"], func:["Coordinar artistas y grupos representativos; prueba de sonido","Definir orden de presentación, camerinos y zonas de espera","Supervisar ingreso, salida, tiempos y cierre artístico"] },
+  { icon:"🎚️", name:"Producción técnica / sonido", horario:"7:30 a. m. – 1:30 p. m.", lead:"Productor Técnico", support:["Sonido","Tarima","Operadores"], func:["Pruebas técnicas, micrófonos y música ambiental","Sonido de misa, calentamiento, anuncios y concierto","Manejar cambios entre actividades y contingencias técnicas"] },
+  { icon:"🎟️", name:"Protocolo y atención de invitados", horario:"8:00 a. m. – 1:00 p. m.", lead:"Responsable de Protocolo", support:["Anfitriones","Estudiantes"], func:["Recibir invitados especiales y acompañarlos en la jornada","Coordinar ubicaciones y momentos institucionales","Garantizar una experiencia coherente con el aniversario"] },
+  { icon:"📸", name:"Comunicaciones y registro audiovisual", horario:"8:00 a. m. – 1:30 p. m.", lead:"Responsable de Comunicaciones", support:["Fotografía","Video","Redes sociales"], func:["Registro fotográfico y audiovisual de momentos clave","Generar contenidos en tiempo real y testimonios","Garantizar visibilidad del concepto Aniversario Solidario"] },
+  { icon:"🚑", name:"Seguridad, salud y emergencias", horario:"7:30 a. m. – 1:30 p. m.", lead:"Responsable de SST / Seguridad", support:["Brigada","Vigilancia","Primeros auxilios"], func:["Activar plan de emergencias y rutas de evacuación","Controlar aforos y acompañar la carrera","Identificar riesgos y coordinar con servicios médicos"] },
+  { icon:"💙", name:"Experiencia del participante", horario:"8:00 a. m. – 1:30 p. m.", lead:"Responsable de Experiencia del Estudiante", support:["Voluntarios","Anfitriones"], func:["Velar por una jornada cálida, familiar y organizada","Orientar asistentes y resolver preguntas","Identificar puntos de fricción y activar soluciones"] },
+  { icon:"🙋", name:"Voluntarios / estudiantes de apoyo", horario:"Toda la jornada", lead:"Coordinador de Voluntarios", support:["Voluntarios"], func:["Apoyar orientación, filas y actividades familiares","Entregar información y acompañar participantes","Reportar novedades al responsable correspondiente"] },
+  { icon:"📦", name:"Cierre y desmontaje", horario:"2:25 – 4:30 p. m. (estimado)", lead:"Responsable de Logística", support:["Todos los líderes de frente"], func:["Validar salida de proveedores y participantes","Desmontar, recolectar materiales y revisar espacios","Gestionar objetos perdidos, residuos y entrega del campus"] },
+];
+
+// ====================== RENDER ESTÁTICO ======================
+function renderFrentes(){
+  document.getElementById("frentes-list").innerHTML = FRENTES.map(f => `
+    <details class="frente-card">
+      <summary>
+        <div class="frente-icon">${f.icon}</div>
+        <div class="frente-main">
+          <div class="frente-title">${f.name}</div>
+          <div class="frente-sub">${f.horario} · ${f.lead}</div>
+        </div>
+        <span class="chev">▾</span>
+      </summary>
+      <div class="frente-body">
+        <ul>${f.func.map(x => `<li>${x}</li>`).join("")}</ul>
+        <div class="support-chips">${f.support.map(s => `<span class="chip-sm">${s}</span>`).join("")}</div>
+      </div>
+    </details>
+  `).join("");
+}
+
+function renderConcert(){
+  const now = new Date();
+  document.getElementById("concert-lineup").innerHTML = CONCERT_LINEUP.map((g,i) => {
+    const isNow = now >= g.start && now < g.end;
+    const isDone = now >= g.end;
+    return `
+      <div class="lineup-item ${isNow?'now':''} ${isDone?'done':''}">
+        <div class="lineup-num">${isDone ? '✓' : i+1}</div>
+        <div>
+          <div class="lineup-name">${g.name} ${isNow ? '<span class="now-tag">EN ESCENARIO</span>' : ''}</div>
+          <div class="lineup-dir">${g.dir}</div>
+        </div>
+        <div class="lineup-time">${fmtTime(g.start)}<br>${fmtTime(g.end)}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+function fmtTime(d){
+  return new Intl.DateTimeFormat('es-CO',{hour:'numeric',minute:'2-digit',hour12:true,timeZone:'America/Bogota'}).format(d);
+}
+
+// ====================== CUENTA REGRESIVA / ESTADO SUPERIOR ======================
+function renderCountdown(now){
+  const stripLabel = document.getElementById("strip-label");
+  const stripMsg = document.getElementById("strip-msg");
+  const stripRight = document.getElementById("strip-right");
+
+  if(now < PUBLIC_START){
+    const diff = PUBLIC_START - now;
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    stripLabel.textContent = "Faltan para abrir las puertas";
+    stripMsg.textContent = "Domingo 20 de septiembre, 8:00 a. m.";
+    const units = d > 0 ? [[d,"días"],[h,"hrs"],[m,"min"],[s,"seg"]] : [[h,"hrs"],[m,"min"],[s,"seg"]];
+    stripRight.innerHTML = `<div class="countdown">${units.map(u => `
+      <div class="unit"><div class="num">${String(u[0]).padStart(2,'0')}</div><div class="u">${u[1]}</div></div>
+    `).join("")}</div>`;
+  } else if (now >= TIMELINE[TIMELINE.length-1].end){
+    stripLabel.textContent = "Evento";
+    stripMsg.textContent = "¡Gracias por acompañarnos! 🎉";
+    stripRight.innerHTML = "";
+  } else {
+    stripLabel.textContent = "Estado";
+    stripMsg.textContent = "El evento está en curso";
+    stripRight.innerHTML = `<span class="live-pill"><span class="live-dot"></span> EN VIVO</span>`;
+  }
+}
+
+// ====================== ESTADO EN VIVO ======================
+function updateLive(){
+  const now = new Date();
+  renderCountdown(now);
+
+  const banner = { icon:document.getElementById("phase-icon"), label:document.getElementById("status-label"),
+    title:document.getElementById("current-title"), range:document.getElementById("current-time-range"),
+    lead:document.getElementById("current-lead"), support:document.getElementById("current-support"),
+    fill:document.getElementById("progress-fill"), nextTitle:document.getElementById("next-title"),
+    nextTime:document.getElementById("next-time") };
+
+  let current=null, currentIndex=-1, next=null;
+
+  if(now >= MONTAJE_START && now < TIMELINE[0].start){
+    banner.icon.textContent = "🛠️";
+    banner.label.textContent = "Hoy es día de montaje";
+    banner.title.textContent = "Preparando el campus";
+    banner.range.textContent = "Sábado desde las 8:00 a. m.";
+    banner.lead.textContent = "Luisa López";
+    banner.support.textContent = "Johan, Luz Ángela, Becarios";
+    banner.fill.style.width = "0%";
+    banner.nextTitle.textContent = "Apertura operativa";
+    banner.nextTime.textContent = "Domingo, desde " + fmtTime(TIMELINE[0].start);
+  } else {
+    for(let i=0;i<TIMELINE.length;i++){
+      const seg = TIMELINE[i];
+      if(now >= seg.start && now < seg.end){ current = seg; currentIndex = i; break; }
+    }
+    if(!current){
+      if(now < TIMELINE[0].start){ next = TIMELINE[0]; }
+      else if(now < TIMELINE[TIMELINE.length-1].end){
+        for(let i=0;i<TIMELINE.length-1;i++){
+          if(now >= TIMELINE[i].end && now < TIMELINE[i+1].start){ next = TIMELINE[i+1]; break; }
+        }
+      }
+    } else {
+      next = TIMELINE[currentIndex+1] || null;
+    }
+
+    if(current){
+      banner.icon.textContent = current.icon;
+      banner.label.textContent = "Actividad actual";
+      banner.title.textContent = current.title;
+      banner.range.textContent = fmtTime(current.start) + " — " + fmtTime(current.end);
+      banner.lead.textContent = current.lead;
+      banner.support.textContent = current.support;
+      const total = current.end - current.start;
+      const elapsed = now - current.start;
+      banner.fill.style.width = Math.min(100, Math.max(0,(elapsed/total)*100)) + "%";
+    } else if (now < TIMELINE[0].start){
+      banner.icon.textContent = "⏳";
+      banner.label.textContent = "Aún no comienza";
+      banner.title.textContent = TIMELINE[0].title;
+      banner.range.textContent = "Inicia " + fmtTime(TIMELINE[0].start);
+      banner.lead.textContent = TIMELINE[0].lead;
+      banner.support.textContent = TIMELINE[0].support;
+      banner.fill.style.width = "0%";
+    } else if (now >= TIMELINE[TIMELINE.length-1].end){
+      banner.icon.textContent = "✅";
+      banner.label.textContent = "El evento ha concluido";
+      banner.title.textContent = "¡Gracias por acompañarnos!";
+      banner.range.textContent = "";
+      banner.lead.textContent = "—";
+      banner.support.textContent = "—";
+      banner.fill.style.width = "100%";
+    } else {
+      banner.icon.textContent = "🔄";
+      banner.label.textContent = "Cambio de actividad";
+      banner.title.textContent = "Preparando la siguiente actividad";
+      banner.range.textContent = "";
+      banner.lead.textContent = "—";
+      banner.support.textContent = "—";
+      banner.fill.style.width = "0%";
+    }
+
+    banner.nextTitle.textContent = next ? next.title : "No hay más actividades";
+    banner.nextTime.textContent = next ? ("Desde " + fmtTime(next.start)) : "";
+  }
+
+  document.getElementById("updated-note").textContent =
+    "Última actualización: " + new Intl.DateTimeFormat('es-CO',{hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true,timeZone:'America/Bogota'}).format(now);
+
+  renderMiniTimeline(now);
+  renderConcert();
+}
+
+function renderMiniTimeline(now){
+  document.getElementById("mini-timeline").innerHTML = TIMELINE.map(seg => {
+    const done = now >= seg.end;
+    const isNow = now >= seg.start && now < seg.end;
+    return `
+      <div class="step ${done?'done':''} ${isNow?'now':''}">
+        <div class="rail"><div class="icon-dot">${done ? '✓' : seg.icon}</div><div class="rail-line"></div></div>
+        <div class="content">
+          <div class="time">${fmtTime(seg.start)} – ${fmtTime(seg.end)}</div>
+          <div class="title">${seg.title}${isNow ? '<span class="now-tag">AHORA</span>' : ''}</div>
+          <div class="who">${seg.lead}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+// ====================== TABS ======================
+document.getElementById("tabs").addEventListener("click", (e) => {
+  const btn = e.target.closest("button[data-tab]");
+  if(!btn) return;
+  document.querySelectorAll("nav.tabs button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  document.querySelectorAll("section.panel").forEach(p => p.classList.remove("active"));
+  document.getElementById("panel-" + btn.dataset.tab).classList.add("active");
+  revealCards();
+});
+
+// ====================== SCROLL REVEAL ======================
+let observer;
+function revealCards(){
+  const cards = document.querySelectorAll(".panel.active .card");
+  if(!observer){
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){ entry.target.classList.add("in-view"); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+  }
+  cards.forEach(c => observer.observe(c));
+}
+
+// ====================== INIT ======================
+renderFrentes();
+updateLive();
+revealCards();
+setInterval(updateLive, 1000);
+</script>
+</body>
+</html>
