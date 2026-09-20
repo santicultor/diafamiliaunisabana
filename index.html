@@ -262,21 +262,32 @@
 
   /* ============ CONCIERTO ============ */
   .lineup-item{
-    display:flex; align-items:center; gap:14px; padding:13px 10px; border-bottom:1px solid var(--border);
-    border-radius:12px; transition: background .2s ease;
+    border-bottom:1px solid var(--border);
+    border-radius:12px;
+    transition: background .2s ease;
   }
   .lineup-item:last-child{ border-bottom:none; }
   @media (hover:hover){ .lineup-item:hover{ background:var(--blue-soft); } }
+  .lineup-item > summary{ list-style:none; cursor:pointer; }
+  .lineup-item > summary::-webkit-details-marker{ display:none; }
+  .lineup-summary{ display:flex; align-items:center; gap:14px; padding:13px 10px; }
   .lineup-num{
     width:38px;height:38px;flex:0 0 38px;border-radius:50%; background:var(--navy); color:#fff;
     display:flex;align-items:center;justify-content:center; font-weight:800; font-size:15px;
   }
   .lineup-item.now .lineup-num{ background:var(--live-red); }
   .lineup-item.done .lineup-num{ background:var(--ok-green); }
+  .lineup-info{ flex:1; min-width:0; }
   .lineup-name{ font-family:var(--font-display); font-weight:700; font-size:15px; }
   .lineup-dir{ font-size:12.5px; color:var(--muted); }
-  .lineup-time{ margin-left:auto; text-align:right; font-size:12.5px; font-weight:700; color:var(--blue); flex:0 0 auto; }
+  .lineup-time{ text-align:right; font-size:12.5px; font-weight:700; color:var(--blue); flex:0 0 auto; }
   :root[data-theme="dark"] .lineup-time{ color:#8fb4ff; }
+  .lineup-item .chev{ flex:0 0 auto; margin-left:6px; color:var(--muted); transition:transform .25s ease; }
+  .lineup-item[open] .chev{ transform:rotate(180deg); }
+  .lineup-body{ padding:0 14px 16px 62px; font-size:13.5px; animation: fadeIn .3s ease; }
+  .lineup-body p{ margin:0 0 10px; color:var(--ink); }
+  .lineup-meta-row{ display:flex; gap:8px; font-size:12.5px; padding:4px 0; }
+  .lineup-meta-row .meta-k{ flex:0 0 110px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.04em; font-size:10.5px; padding-top:2px; }
 
   .footer-note{ text-align:center; font-size:12px; color:var(--muted); margin-top:26px; padding:0 20px; }
 </style>
@@ -359,7 +370,7 @@
   <section class="panel" id="panel-concert">
     <div class="card">
       <h3 class="section-title">🎤 Concierto "Voces por Colombia"</h3>
-      <p style="font-size:13px;color:var(--muted);margin-top:-8px;">Responsable general: <b>Santiago Bedoya</b> · Desarrollo Cultural</p>
+      <p style="font-size:13px;color:var(--muted);margin-top:-8px;">Responsable general: <b>Santiago Bedoya</b> · Desarrollo Cultural. Toca cada grupo para ver su reseña — ideal para que el host los presente en tarima.</p>
       <div id="concert-lineup"></div>
     </div>
   </section>
@@ -390,18 +401,60 @@ const TIMELINE = [
   { icon:"🏃", start: dt("10:00"), end: dt("10:45"), title: "Carrera Misión Corre por La Sabana", lead: "Equipo de Deportes", support: "Seguridad, brigada, logística, comunicaciones · Grupo de Repercusión animando el recorrido" },
   { icon:"🌿", start: dt("10:45"), end: dt("11:00"), title: "Transición al festival", lead: "Carolina Márquez", support: "Equipo Base" },
   { icon:"🎡", start: dt("11:00"), end: dt("11:30"), title: "Festival (emprendimiento, gastronomía, recreación, carros antiguos)", lead: "Equipo Base", support: "Emprendedores, proveedores, SST, recreadores" },
-  { icon:"🎤", start: dt("11:30"), end: dt("14:55"), title: "Concierto \"Voces por Colombia\"", lead: "Santiago Bedoya — Desarrollo Cultural", support: "Grupos representativos, producción, protocolo, comunicaciones", isConcert:true },
-  { icon:"🙌", start: dt("14:55"), end: dt("15:30"), title: "Cierre", lead: "Equipo BEE + Becarios", support: "Todos los líderes de frente" },
-  { icon:"📦", start: dt("15:30"), end: dt("17:00"), title: "Desmontaje", lead: "Responsable de Logística", support: "Equipo BEE + Becarios" },
+  { icon:"🎤", start: dt("11:10"), end: dt("14:35"), title: "Concierto \"Voces por Colombia\"", lead: "Santiago Bedoya — Desarrollo Cultural", support: "Grupos representativos, producción, protocolo, comunicaciones", isConcert:true },
+  { icon:"🙌", start: dt("14:35"), end: dt("15:10"), title: "Cierre", lead: "Equipo BEE + Becarios", support: "Todos los líderes de frente" },
+  { icon:"📦", start: dt("15:10"), end: dt("16:40"), title: "Desmontaje", lead: "Responsable de Logística", support: "Equipo BEE + Becarios" },
 ];
 
 const CONCERT_LINEUP = [
-  { name:"Entre Mares", dir:"Dir. Jordy Sánchez", start: dt("11:30"), end: dt("12:00") },
-  { name:"Punto Rock", dir:"Dir. Julián Crosby", start: dt("12:05"), end: dt("12:35") },
-  { name:"US Band", dir:"Dir. Gustavo Rincón", start: dt("12:40"), end: dt("13:10") },
-  { name:"Puente Rojo", dir:"Dir. Julián Crosby", start: dt("13:15"), end: dt("13:45") },
-  { name:"Fusión", dir:"Dir. Gustavo Rincón", start: dt("13:50"), end: dt("14:20") },
-  { name:"Parranda / Vallenato", dir:"Dir. Jordy Sánchez", start: dt("14:25"), end: dt("14:55") },
+  {
+    name:"Entre Mares",
+    genre:"Música del Pacífico y del Caribe",
+    dir:"Jordy Ananías Sánchez Llanos",
+    start: dt("11:10"), end: dt("11:40"),
+    bio:"Entre Mares interpreta las músicas tradicionales del Caribe y el Pacífico colombianos: cumbia, bullerengue, puya, currulao y abozao, entre otros ritmos. Desde 2025 fusiona los instrumentos tradicionales con sonidos contemporáneos, sin perder el respeto por sus raíces.",
+    achievement:"Conciertos, presentaciones didácticas y circulación cultural a nivel regional y nacional."
+  },
+  {
+    name:"Punto Rock",
+    genre:"Rock, metal, blues y funk",
+    dir:"Julián David Crosby Torres",
+    start: dt("11:45"), end: dt("12:15"),
+    bio:"Punto Rock explora el rock and roll, el metal, el blues y el funk. Nació para reunir a los amantes del rock de la Universidad en un proceso de formación musical y humana.",
+    achievement:"Reconocimientos en concursos de rock universitario y festivales interuniversitarios."
+  },
+  {
+    name:"US Band",
+    genre:"Pop-rock y latin pop",
+    dir:"Gustavo Rincón Sánchez",
+    start: dt("12:20"), end: dt("12:50"),
+    bio:"USBAND fusiona pop, balada y rock con el latin pop tradicional y contemporáneo. Nació en 2009 y es uno de los grupos más activos en las actividades solidarias de la Universidad.",
+    achievement:"Ganador del Festival Regional de Rock y Pop de ASCUN en 2024."
+  },
+  {
+    name:"Puente Rojo",
+    genre:"Rock alternativo y clásico",
+    dir:"Julián David Crosby Torres",
+    start: dt("12:55"), end: dt("13:25"),
+    bio:"Puente Rojo se mueve entre el rock alternativo y el rock clásico, con energía, identidad sonora y una puesta en escena dinámica. Nació como semillero musical y hoy tiene una fuerte proyección escénica.",
+    achievement:"Participación constante en escenarios dentro y fuera del campus."
+  },
+  {
+    name:"Fusión",
+    genre:"Pop-rock con ritmos tropicales",
+    dir:"Gustavo Rincón Sánchez",
+    start: dt("13:30"), end: dt("14:00"),
+    bio:"Grupo Fusión mezcla el pop, la balada y el rock con ritmos tropicales como la salsa, el vallenato, el bolero y el son. Nació como orquesta y desde 2007 tiene identidad propia.",
+    achievement:"Ganador del Festival Regional de Rock y Pop de ASCUN en 2023."
+  },
+  {
+    name:"Parranda",
+    genre:"Vallenato",
+    dir:"Jordy Sánchez",
+    start: dt("14:05"), end: dt("14:35"),
+    bio:"Parranda vive y comparte el vallenato con acordeón, caja, guacharaca y más. Nació en 2022 para fortalecer las raíces culturales colombianas dentro de la Universidad.",
+    achievement:"El cierre musical perfecto de cualquier fiesta sabanera."
+  },
 ];
 
 const FRENTES = [
@@ -414,14 +467,14 @@ const FRENTES = [
   { icon:"🍔", name:"Festival gastronómico", horario:"11:00 a. m.", lead:"Responsable de Gastronomía / Logística", support:["Proveedores","Emprendimientos","SST"], func:["Verificar manipulación de alimentos y puntos de venta","Gestionar residuos y disponibilidad de mesas","Supervisar condiciones de seguridad e higiene"] },
   { icon:"🎈", name:"Actividades recreativas en familia", horario:"11:00 a. m.", lead:"Responsable de Experiencia / Bienestar", support:["Recreadores","Estudiantes voluntarios"], func:["Coordinar juegos y experiencias; organizar familias","Garantizar participación de diferentes edades","Controlar materiales, tiempos y flujo de asistentes"] },
   { icon:"🚗", name:"Exposición de carros antiguos", horario:"11:00 a. m.", lead:"Responsable de Logística", support:["Seguridad","Anfitriones"], func:["Coordinar ingreso y ubicación de vehículos","Delimitar espacios y garantizar seguridad","Organizar circulación y retiro de los carros"] },
-  { icon:"🎤", name:"Concierto \"Voces por Colombia\"", horario:"11:30 a. m. – 2:55 p. m.", lead:"Responsable de Desarrollo Cultural — Santiago Bedoya", support:["Grupos representativos","Producción","Protocolo","Comunicaciones"], func:["Coordinar artistas y grupos representativos; prueba de sonido","Definir orden de presentación, camerinos y zonas de espera","Supervisar ingreso, salida, tiempos y cierre artístico"] },
+  { icon:"🎤", name:"Concierto \"Voces por Colombia\"", horario:"11:10 a. m. – 2:35 p. m.", lead:"Responsable de Desarrollo Cultural — Santiago Bedoya", support:["Grupos representativos","Producción","Protocolo","Comunicaciones"], func:["Coordinar artistas y grupos representativos; prueba de sonido","Definir orden de presentación, camerinos y zonas de espera","Supervisar ingreso, salida, tiempos y cierre artístico"] },
   { icon:"🎚️", name:"Producción técnica / sonido", horario:"7:30 a. m. – 1:30 p. m.", lead:"Productor Técnico", support:["Sonido","Tarima","Operadores"], func:["Pruebas técnicas, micrófonos y música ambiental","Sonido de misa, calentamiento, anuncios y concierto","Manejar cambios entre actividades y contingencias técnicas"] },
   { icon:"🎟️", name:"Protocolo y atención de invitados", horario:"8:00 a. m. – 1:00 p. m.", lead:"Responsable de Protocolo", support:["Anfitriones","Estudiantes"], func:["Recibir invitados especiales y acompañarlos en la jornada","Coordinar ubicaciones y momentos institucionales","Garantizar una experiencia coherente con el aniversario"] },
   { icon:"📸", name:"Comunicaciones y registro audiovisual", horario:"8:00 a. m. – 1:30 p. m.", lead:"Responsable de Comunicaciones", support:["Fotografía","Video","Redes sociales"], func:["Registro fotográfico y audiovisual de momentos clave","Generar contenidos en tiempo real y testimonios","Garantizar visibilidad del concepto Aniversario Solidario"] },
   { icon:"🚑", name:"Seguridad, salud y emergencias", horario:"7:30 a. m. – 1:30 p. m.", lead:"Responsable de SST / Seguridad", support:["Brigada","Vigilancia","Primeros auxilios"], func:["Activar plan de emergencias y rutas de evacuación","Controlar aforos y acompañar la carrera","Identificar riesgos y coordinar con servicios médicos"] },
   { icon:"💙", name:"Experiencia del participante", horario:"8:00 a. m. – 1:30 p. m.", lead:"Responsable de Experiencia del Estudiante", support:["Voluntarios","Anfitriones"], func:["Velar por una jornada cálida, familiar y organizada","Orientar asistentes y resolver preguntas","Identificar puntos de fricción y activar soluciones"] },
   { icon:"🙋", name:"Voluntarios / estudiantes de apoyo", horario:"Toda la jornada", lead:"Coordinador de Voluntarios", support:["Voluntarios"], func:["Apoyar orientación, filas y actividades familiares","Entregar información y acompañar participantes","Reportar novedades al responsable correspondiente"] },
-  { icon:"📦", name:"Cierre y desmontaje", horario:"2:55 – 5:00 p. m. (estimado)", lead:"Responsable de Logística", support:["Todos los líderes de frente"], func:["Validar salida de proveedores y participantes","Desmontar, recolectar materiales y revisar espacios","Gestionar objetos perdidos, residuos y entrega del campus"] },
+  { icon:"📦", name:"Cierre y desmontaje", horario:"2:35 – 4:40 p. m. (estimado)", lead:"Responsable de Logística", support:["Todos los líderes de frente"], func:["Validar salida de proveedores y participantes","Desmontar, recolectar materiales y revisar espacios","Gestionar objetos perdidos, residuos y entrega del campus"] },
 ];
 
 // ====================== RENDER ESTÁTICO ======================
@@ -450,14 +503,22 @@ function renderConcert(){
     const isNow = now >= g.start && now < g.end;
     const isDone = now >= g.end;
     return `
-      <div class="lineup-item ${isNow?'now':''} ${isDone?'done':''}">
-        <div class="lineup-num">${isDone ? '✓' : i+1}</div>
-        <div>
-          <div class="lineup-name">${g.name} ${isNow ? '<span class="now-tag">EN ESCENARIO</span>' : ''}</div>
-          <div class="lineup-dir">${g.dir}</div>
+      <details class="lineup-item ${isNow?'now':''} ${isDone?'done':''}">
+        <summary class="lineup-summary">
+          <div class="lineup-num">${isDone ? '✓' : i+1}</div>
+          <div class="lineup-info">
+            <div class="lineup-name">${g.name} ${isNow ? '<span class="now-tag">EN ESCENARIO</span>' : ''}</div>
+            <div class="lineup-dir">${g.genre}</div>
+          </div>
+          <div class="lineup-time">${fmtTime(g.start)}<br>${fmtTime(g.end)}</div>
+          <span class="chev">▾</span>
+        </summary>
+        <div class="lineup-body">
+          <p>${g.bio}</p>
+          <div class="lineup-meta-row"><span class="meta-k">Director</span><span>${g.dir}</span></div>
+          <div class="lineup-meta-row"><span class="meta-k">Para destacar</span><span>${g.achievement}</span></div>
         </div>
-        <div class="lineup-time">${fmtTime(g.start)}<br>${fmtTime(g.end)}</div>
-      </div>
+      </details>
     `;
   }).join("");
 }
