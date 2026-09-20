@@ -499,7 +499,10 @@ function renderFrentes(){
 
 function renderConcert(){
   const now = new Date();
-  document.getElementById("concert-lineup").innerHTML = CONCERT_LINEUP.map((g,i) => {
+  const container = document.getElementById("concert-lineup");
+  const openFlags = Array.from(container.querySelectorAll("details.lineup-item")).map(d => d.open);
+
+  container.innerHTML = CONCERT_LINEUP.map((g,i) => {
     const isNow = now >= g.start && now < g.end;
     const isDone = now >= g.end;
     return `
@@ -521,6 +524,10 @@ function renderConcert(){
       </details>
     `;
   }).join("");
+
+  Array.from(container.querySelectorAll("details.lineup-item")).forEach((d,i) => {
+    if(openFlags[i]) d.open = true;
+  });
 }
 
 function fmtTime(d){
@@ -691,4 +698,4 @@ revealCards();
 setInterval(updateLive, 1000);
 </script>
 </body>
-</html> 
+</html>
